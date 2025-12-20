@@ -1,0 +1,3 @@
+/Users/ajbamgbelu/Documents/DatabaseExplorer/build/CMakeFiles/db_explorer.dir
+/Users/ajbamgbelu/Documents/DatabaseExplorer/build/CMakeFiles/edit_cache.dir
+/Users/ajbamgbelu/Documents/DatabaseExplorer/build/CMakeFiles/rebuild_cache.dir
