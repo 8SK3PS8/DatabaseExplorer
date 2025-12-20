@@ -1,0 +1,66 @@
+version: '3.8'
+
+services:
+  # PostgreSQL - Relational Database
+  postgres:
+    image: postgres:16
+    container_name: db_explorer_postgres
+    environment:
+      POSTGRES_USER: explorer
+      POSTGRES_PASSWORD: explorer123
+      POSTGRES_DB: testdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  # MongoDB - Document Database
+  mongodb:
+    image: mongo:7
+    container_name: db_explorer_mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: explorer
+      MONGO_INITDB_ROOT_PASSWORD: explorer123
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+  # Cassandra - Key-Value / Wide-Column Store
+  cassandra:
+    image: cassandra:4.1
+    container_name: db_explorer_cassandra
+    environment:
+      CASSANDRA_CLUSTER_NAME: TestCluster
+    ports:
+      - "9042:9042"
+    volumes:
+      - cassandra_data:/var/lib/cassandra
+
+  # Redis - In-Memory Key-Value Store
+  redis:
+    image: redis:7
+    container_name: db_explorer_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  # Neo4j - Graph Database
+  neo4j:
+    image: neo4j:5
+    container_name: db_explorer_neo4j
+    environment:
+      NEO4J_AUTH: neo4j/explorer123
+    ports:
+      - "7474:7474"  # HTTP
+      - "7687:7687"  # Bolt
+    volumes:
+      - neo4j_data:/data
+
+volumes:
+  postgres_data:
+  mongodb_data:
+  cassandra_data:
+  redis_data:
+  neo4j_data:
