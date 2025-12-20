@@ -8,3 +8,17 @@ This was a simple C++ mini-project to learn more about different database types 
 
 **Neo4j (Graph Database)** - Graph Databases are exactly as they sound, they are graphs. These Databases are very good for highly connected data where relationships are the main thing that you query. Instead of JOINs, you traverse relationships directly by following pointers. The building block for this graph are nodes, that have properties and are connected to eachother via defined relationships. These are good for social networks, recommendation engines, and fraud detection.
 
+## Running the Project
+
+```bash
+#Start the databases
+docker-compose up -d
+
+#Build
+mkdir build && cd build
+cmake ..
+make
+
+#Run
+./db_explorer
+```
