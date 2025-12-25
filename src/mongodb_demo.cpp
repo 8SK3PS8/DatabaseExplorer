@@ -2,7 +2,7 @@
 #include <mongocxx/client.hpp>
 #include <mongocxx/instance.hpp>
 #include <mongocxx/uri.hpp>
-#include <mongocxx/json.hpp>
+#include <bsoncxx/json.hpp>
 
 const char* MONGO_URI = "mongodb://explorer:explorer123@localhost:27017";
 // This is the connection string - explorer is the username, expl123 is the password, localhost:27017 is connect to that port
@@ -94,5 +94,7 @@ void run_mongodb_demo()
             bsoncxx::from_json(R"({"$set": {"age": 22}})")
         ); // first arg is which doc to update, second arg is what change to make $set is what you use to make that change
 
+    } catch (const std::exception& e) {
+        print_err(e.what());
     }
 }

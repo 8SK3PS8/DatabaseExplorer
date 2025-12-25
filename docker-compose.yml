@@ -1,18 +1,6 @@
 version: '3.8'
 
 services:
-  # PostgreSQL - Relational Database
-  postgres:
-    image: postgres:16
-    container_name: db_explorer_postgres
-    environment:
-      POSTGRES_USER: explorer
-      POSTGRES_PASSWORD: explorer123
-      POSTGRES_DB: testdb
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
 
   # MongoDB - Document Database
   mongodb:
@@ -37,15 +25,6 @@ services:
     volumes:
       - cassandra_data:/var/lib/cassandra
 
-  # Redis - In-Memory Key-Value Store
-  redis:
-    image: redis:7
-    container_name: db_explorer_redis
-    ports:
-      - "6379:6379"
-    volumes:
-      - redis_data:/data
-
   # Neo4j - Graph Database
   neo4j:
     image: neo4j:5
@@ -59,8 +38,6 @@ services:
       - neo4j_data:/data
 
 volumes:
-  postgres_data:
   mongodb_data:
   cassandra_data:
-  redis_data:
   neo4j_data:

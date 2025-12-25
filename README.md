@@ -1,4 +1,4 @@
-This was a simple C++ mini-project to learn more about different database types and when to use them (more details on this on my blog soon). This project gave me hands on experience with Wide-Column Databases, Document Store Databases, and Graph Databases.
+This was a simple C++ mini-project to learn more about different database types and when to use them (more details on this can be found on my [blog post](https://adeobam.com/blog/nosql-databases-cpp)). This project gave me hands on experience with Wide-Column Databases, Document Store Databases, and Graph Databases.
 
 ## Briefly what I learned
 

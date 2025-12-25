@@ -49,6 +49,17 @@ bool run_cypher(const std::string& query, std::string& response) {
     return res == CURLE_OK;
 }
 
+void print_results(const std::string& response) {
+    json result = json::parse(response);
+    for (auto& row : result["results"][0]["data"]) {
+        std::cout << "  ";
+        for (auto& val : row["row"]) {
+            std::cout << val << " ";
+        }
+        std::cout << "\n";
+    }
+}
+
 void run_neo4j_demo() {
     print_header("Neo4j");
 
@@ -83,7 +94,7 @@ void run_neo4j_demo() {
     run_cypher(
         "MATCH (a:Person {name:'AJ'}), (b:Person {name:'Bob'})"
         "CREATE (a)-[:FRIENDS_WITH]->(b)"
-    );
+    , response);
     std::cout << "Created a friendship between AJ and Bob" << std::endl;
 
     //Created a friendship relationship between Bob and Carol
@@ -97,7 +108,7 @@ void run_neo4j_demo() {
     run_cypher(
         "MATCH (a:Person {name:'AJ'}), (b:Company {name:'Meta'})"
         "CREATE (a)-[:WORKS_AT{since: 2024}]->(m)"
-    ); // the since is bc relationships can have properties
+    , response); // the since is bc relationships can have properties
     std::cout << "Created a working relation between AJ and Meta" << std::endl;
 
 
